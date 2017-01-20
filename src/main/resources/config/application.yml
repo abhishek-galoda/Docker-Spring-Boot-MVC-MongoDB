@@ -1,0 +1,21 @@
+server:
+    port: 8080
+application:
+    message: I am now here!!
+    appname: and this is a SpringBoot App
+    
+---
+spring:
+    profiles: development
+server:
+    port: 9090
+application:
+    message: I am in DEV ENV
+---
+spring:
+    profiles: production
+server:
+    port: 10010
+application:
+    message: I am in PROD ENV
+---

@@ -3,13 +3,20 @@ server:
 application:
     message: I am now here!!
     appname: and this is a SpringBoot App
-    
+logging.file: app.log
+management.port: 8081
+management.addres: 127.0.0.1
+management.context-path: /admin 
+endpoints.health.enabled: true
+security.basic.enabled: false
+management.security.enabled: false
+spring.data.mongodb.uri: mongodb://localhost:27000/test
 ---
-spring:
+spring: 
     profiles: development
 server:
     port: 9090
-application:
+application: 
     message: I am in DEV ENV
 ---
 spring:
@@ -18,4 +25,3 @@ server:
     port: 10010
 application:
     message: I am in PROD ENV
----

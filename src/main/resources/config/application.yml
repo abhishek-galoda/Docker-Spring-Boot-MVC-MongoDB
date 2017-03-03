@@ -2,7 +2,7 @@ server:
     port: 8080
 application:
     message: I am now here!!
-    appname: and this is a SpringBoot App 
+    appname: and this is a SpringBoot App ...
 logging.file: app.log
 management.port: 8081
 management.addres: 127.0.0.1

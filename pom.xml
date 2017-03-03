@@ -16,8 +16,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
-		
+		    
+		  
 
 		<!-- mongodb java driver -->
 		<dependency>

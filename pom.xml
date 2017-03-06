@@ -16,8 +16,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		    
-		  
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
 
 		<!-- mongodb java driver -->
 		<dependency>
@@ -60,6 +63,43 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.20.0</version>
+				<configuration>
+					<!-- <dockerHost>https://localhost:2376</dockerHost> -->
+					<images>
+						<image>
+							<name>springboot-mongo-dockerimage:${project.version}</name>
+							<build>
+								<dockerFileDir>${project.basedir}</dockerFileDir>
+							</build>
+							<run>
+								<dependsOn>
+									<container>mongo</container>
+								</dependsOn>
+								<ports>
+									<port>18080:8080</port>
+								</ports>
+								<!-- <links>
+									<link>mongo</link>
+								</links> -->
+								<log>
+									<prefix>TC</prefix>
+									<date>default</date>
+									<color>cyan</color>
+								</log>
+							</run>
+						</image>
+					</images>
+				</configuration>
+
+				<!-- <executions> <execution> <id>start</id> <phase>pre-integration-test</phase> 
+					<goals> <goal>build</goal> <goal>start</goal> </goals> </execution> <execution> 
+					<id>stop</id> <phase>post-integration-test</phase> <goals> <goal>stop</goal> 
+					</goals> </execution> </executions> -->
 			</plugin>
 		</plugins>
 	</build>

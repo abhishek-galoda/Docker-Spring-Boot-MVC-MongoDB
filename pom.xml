@@ -69,7 +69,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.20.0</version>
 				<configuration>
-					<!-- <dockerHost>https://localhost:2376</dockerHost> -->
+					<dockerHost>tcp://localhost:2375</dockerHost> 
 					<images>
 						<image>
 							<name>springboot-mongo-dockerimage:${project.version}</name>

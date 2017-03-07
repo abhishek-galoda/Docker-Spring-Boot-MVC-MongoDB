@@ -69,7 +69,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.20.0</version>
 				<configuration>
-					<dockerHost>tcp://localhost:2375</dockerHost> 
+					<dockerHost>tcp://localhost:2375</dockerHost>
 					<images>
 						<image>
 							<name>springboot-mongo-dockerimage:${project.version}</name>
@@ -81,9 +81,11 @@
 									<container>mongo</container>
 								</dependsOn>
 								<ports>
-									<port>18080:8080</port>
+									<port>9876:8080</port>
 								</ports>
-								<!-- <links> <link>mongo</link> </links> -->
+								<links>
+									<link>mongo</link>
+								</links>
 								<log>
 									<prefix>TC</prefix>
 									<date>default</date>
@@ -103,13 +105,13 @@
 							<goal>start</goal>
 						</goals>
 					</execution>
-					<!-- <execution>
+					<execution>
 						<id>stop</id>
 						<phase>post-integration-test</phase>
 						<goals>
 							<goal>stop</goal>
 						</goals>
-					</execution> -->
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>

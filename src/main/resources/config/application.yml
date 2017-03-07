@@ -10,7 +10,7 @@ management.context-path: /admin
 endpoints.health.enabled: true
 security.basic.enabled: false
 management.security.enabled: false
-#spring.data.mongodb.uri: mongodb://localhost:27000/test
+spring.data.mongodb.uri: mongodb://mongo:27000/test
 ---
 spring: 
     profiles: development

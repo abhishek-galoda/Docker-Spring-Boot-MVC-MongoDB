@@ -75,10 +75,15 @@
 							<name>springboot-mongo-dockerimage:${project.version}</name>
 							<build>
 								<dockerFileDir>${project.basedir}</dockerFileDir>
-								
+								<healthCheck>
+									<interval>1m</interval>
+									<timeout>3s</timeout>
+									<retries>3</retries>
+									<cmd>curl -f http://localhost:9876/ || exit 1</cmd>
+								</healthCheck>
 							</build>
 							<run>
-							<!-- <hostname>springboot-mongo-dockerimage:${project.version}</hostname> -->
+								<!-- <hostname>springboot-mongo-dockerimage:${project.version}</hostname> -->
 								<dependsOn>
 									<container>mongo</container>
 								</dependsOn>
@@ -94,6 +99,7 @@
 									<color>cyan</color>
 								</log>
 							</run>
+
 						</image>
 					</images>
 				</configuration>
@@ -108,13 +114,8 @@
 							<goal>start</goal>
 						</goals>
 					</execution>
-					<!-- <execution>
-						<id>stop</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>stop</goal>
-						</goals>
-					</execution> -->
+					<!-- <execution> <id>stop</id> <phase>post-integration-test</phase> 
+						<goals> <goal>stop</goal> </goals> </execution> -->
 				</executions>
 			</plugin>
 		</plugins>

@@ -73,7 +73,7 @@
 					<images>
 						<image>
 							<name>springboot-mongo-dockerimage:${project.version}</name>
-							<alias>springboot-mongo-dockerimage:${project.version}</alias>
+							<alias>springboot-mongo-dockerimage</alias>
 							<build>
 								<dockerFileDir>${project.basedir}</dockerFileDir>
 								

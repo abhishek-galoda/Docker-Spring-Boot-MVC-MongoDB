@@ -73,17 +73,13 @@
 					<images>
 						<image>
 							<name>springboot-mongo-dockerimage:${project.version}</name>
+							<alias>springboot-mongo-dockerimage:${project.version}</alias>
 							<build>
 								<dockerFileDir>${project.basedir}</dockerFileDir>
-								<healthCheck>
-									<interval>1m</interval>
-									<timeout>3s</timeout>
-									<retries>3</retries>
-									<cmd>curl -f http://localhost:9876/ || exit 1</cmd>
-								</healthCheck>
+								
 							</build>
-							<run>
-								<!-- <hostname>springboot-mongo-dockerimage:${project.version}</hostname> -->
+							<run>								
+								<namingStrategy>alias</namingStrategy>
 								<dependsOn>
 									<container>mongo</container>
 								</dependsOn>

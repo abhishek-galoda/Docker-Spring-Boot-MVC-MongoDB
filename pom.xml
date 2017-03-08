@@ -75,8 +75,10 @@
 							<name>springboot-mongo-dockerimage:${project.version}</name>
 							<build>
 								<dockerFileDir>${project.basedir}</dockerFileDir>
+								
 							</build>
 							<run>
+							<!-- <hostname>springboot-mongo-dockerimage:${project.version}</hostname> -->
 								<dependsOn>
 									<container>mongo</container>
 								</dependsOn>
@@ -101,6 +103,7 @@
 						<id>start</id>
 						<phase>pre-integration-test</phase>
 						<goals>
+							<goal>stop</goal>
 							<goal>build</goal>
 							<goal>start</goal>
 						</goals>
